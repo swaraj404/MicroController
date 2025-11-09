@@ -1,0 +1,47 @@
+1. Square Wave
+#include <reg51.h>
+void msdelay(unsigned int);
+void main (void){
+  while(1){
+    P1 = 0x00;
+    msdelay(50);
+    P1=0xFF;
+    msdelay(50);
+    }
+}
+void msdelay(unsigned int itime){
+unsigned int i,j;
+  for(i=0;i<itime;i++){
+    for(j=0;j<1275;j++){
+    }
+  }
+}
+----------------------------------------------
+
+2. Triangular Wave
+#include <reg51.h>
+void main (void){
+  unsigned int k,l;
+  while(1){
+    for(k=0;k<=255;k++){
+    P1=k;
+    }
+    for(l=255;l>0;l--){
+    P1=l;
+    }
+  }
+}
+-----------------------------------------------
+
+3. Sine Wave
+#include <reg51.h>
+void main (void){
+  unsigned char sinvalue[12] =
+  {128,192,238,255,238,192,128,64,17,0,17,64};
+  unsigned char i;
+  while(1){
+    for(i=0;i<12;i++){
+      P1=sinvalue[i];
+    }  
+  } 
+}
